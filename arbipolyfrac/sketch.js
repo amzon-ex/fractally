@@ -43,18 +43,8 @@ function setup() {
   // Choose the center of the canvas as the initial point
   _pt = createVector(cnv.w/2,cnv.h/2);
 
-  let descdiv = document.getElementById("desc");
-  descdiv.style.position = "absolute";
-  descdiv.style.left = 1.01*cnv.w+"px";
-  descdiv.style.width = (window.innerWidth - 1.08*cnv.w)+"px";
-
-  fracslider = document.getElementById("fracslider");
-  let sliderval = document.getElementById("sliderval");
-  sliderval.innerHTML = fracslider.value/100.0;
-  fracslider.oninput = function() { sliderval.innerHTML = fracslider.value/100.0; }
-
-  // slider.onmouseover = function() { console.log(this.value); }
-
+  handleLocalDOM();
+  
   // // Start the capturer
   // capturer.start();
   // draw();
@@ -111,4 +101,22 @@ function toggleDraw() {
 function resetCanvas() {
   if(_verts.length > 0) 
     location.reload(true);  // forceGet = true loads page from server instead of cache
+}
+
+function handleLocalDOM() {
+  let descdiv = document.getElementById("desc");
+  descdiv.style.position = "absolute";
+  if(window.innerHeight < window.innerWidth) {
+    descdiv.style.left = 1.01*cnv.w+"px";
+    descdiv.style.width = (window.innerWidth - 1.08*cnv.w)+"px";
+  }
+  else {
+    descdiv.style.top = 1.15*cnv.h+"px";
+    descdiv.style.width = 0.93*cnv.w+"px";
+  }
+  
+  fracslider = document.getElementById("fracslider");
+  let sliderval = document.getElementById("sliderval");
+  sliderval.innerHTML = fracslider.value/100.0;
+  fracslider.oninput = function() { sliderval.innerHTML = fracslider.value/100.0; }
 }

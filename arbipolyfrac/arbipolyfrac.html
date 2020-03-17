@@ -12,10 +12,13 @@
   <body>
     <div id="desc">
       <h3>Polygonal fractals ft. The Chaos Game</h3>
+      <p><i>Use your mouse</i> or <i>touch</i> the canvas to place points of your own artistic polygon. Click <b>Generate</b> and watch the magic happen!</p>
+      <p><b>Stop</b> to place more points and <b>Reset</b> to get a fresh canvas - <i>Encore!</i></p>
       <p>The generation of fractals is controlled by a <i>fractional factor</i>, which is key to the chaos game. Adjust this factor with the slider from 0 to 1 to get different results.</p>
       <p style="font-size: 80%">(Values less than 0.25 would probably not be charming)</p>
       <input type="range" min="0" max="100" value="40" class="slider" id="fracslider">
-      <div id="sliderval"></div>
+      <div id="sliderval"></div><br>
+      <p><b>Example:</b> An equilateral triangle (plot 3 equispaced points) with factor = 0.5 yields the Sierpinski triangle.</p>
     </div>
   </body>
 </html>
